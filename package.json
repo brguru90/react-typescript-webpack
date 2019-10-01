@@ -84,12 +84,12 @@
   "main": "public/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brguru90/react-typescript-webpack.git"
+    "url": "git+https://github.com/brguru90/react-typescript-webpack-made-easy.git"
   },
   "license": "MIT",
   "description": "Bootstrap,jQuery,routing modules",
   "bugs": {
-    "url": "https://github.com/brguru90/react-typescript-webpack/issues"
+    "url": "https://github.com/brguru90/react-typescript-webpack-made-easy/issues"
   },
   "author": "Guruprasad BR"
 }
