@@ -1,6 +1,6 @@
 {
-  "name": "smarthire",
-  "version": "0.1.0",
+  "name": "react-typescript-webpack",
+  "version": "1.1.0",
   "private": true,
   "homepage": "http:///myapp",
   "dependencies": {
@@ -82,11 +82,14 @@
     "webpack-cli": "^3.3.9"
   },
   "main": "public/index.js",
-  "repository": "git+https://github.com/terralogic2019/smarthire_react.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brguru90/react-typescript-webpack.git"
+  },
   "license": "MIT",
   "description": "Bootstrap,jQuery,routing modules",
   "bugs": {
-    "url": "https://github.com/terralogic2019/smarthire_react/issues"
+    "url": "https://github.com/brguru90/react-typescript-webpack/issues"
   },
-  "author": ""
+  "author": "Guruprasad BR"
 }
