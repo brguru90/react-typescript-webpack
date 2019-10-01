@@ -13,4 +13,3 @@ var page = function (_this: any) {
     )
 }
 export default page;
-    

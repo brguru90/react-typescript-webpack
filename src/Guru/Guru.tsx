@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './Guru.css';
+import './Guru.scss';
 import page from './GuruHtml'
 import Myservice from '../Myservice/Myservice'
 var $ = require("jquery");

@@ -28,7 +28,46 @@ def remove_route(name):
     f.write("\n".join(line_arr))
     f.close()
 
+
+# -----------------------------------------Links--------------------------------------
+
+
+def add_route_link(name):
+    folders = [x for x in os.listdir(path) if not re.search("\.+", x)]
+    links = "\n"
+    for component in folders:
+        links += "\t\t\t<Link to='/"+component+"'>"+component+"</Link><br />\n"
+
+    content = '''
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+var page = function (_this: any) {
+    return (
+        <div className="Routes">
+            <h1 className="wel">Welcome</h1>
+            <h2>'''+name+'''</h2><br />
+            '''+links+'''
+            <input type="button" value="test" onClick={_this.guru} /><br />
+        </div>
+    )
+}
+export default page;
+    '''
+    w_path = path+name+"/"+name+"Html.tsx"
+    f = open(w_path, "w")
+    f.write(content)
+    f.close()
+    os.chmod(w_path, 0o775)
+
+
 # -----------------------------------------MAIN--------------------------------------
+
+def add_links():
+    component = "Routes"
+    if not os.path.exists(path+component):
+        os.mkdir(path+component)
+    add_route_link(component)  
 for i in range(1,len(sys.argv)): 	
     component=sys.argv[i].capitalize()
     if(component=="App" or component=="Myservice" or component=="Not_found"):
@@ -42,3 +81,4 @@ for i in range(1,len(sys.argv)):
             print("removed")
     except:
         print(component+" component already exists")
+add_links()

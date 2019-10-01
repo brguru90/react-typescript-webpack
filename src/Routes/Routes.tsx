@@ -1,6 +1,5 @@
 
-import React from 'react';
-import './Routes.css';
+import './Routes.scss';
 import page from './RoutesHtml'
 import Myservice from '../Myservice/Myservice'
 var $ = require("jquery");

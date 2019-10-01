@@ -13,7 +13,7 @@ class App extends Myservice {
 
 
   guru() {
-    swal("hisdf","")
+    swal("hisdf", "")
   }
   test(a: any) {
     swal(a)

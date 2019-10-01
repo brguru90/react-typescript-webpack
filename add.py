@@ -11,7 +11,7 @@ path = "./src/"
 
 def js(name):
     content = '''
-import './'''+name+'''.css';
+import './'''+name+'''.scss';
 import page from './'''+name+'''Html'
 import Myservice from '../Myservice/Myservice'
 var $ = require("jquery");
@@ -86,9 +86,12 @@ def css(name):
     content = '''
 .'''+name+''' {
     text-align: center;
+    h2 {
+        color: blue;
+    }
 }
 '''
-    w_path = path+name+"/"+name+".css"
+    w_path = path+name+"/"+name+".scss"
     print(w_path)
     f = open(w_path, "w")
     f.write(content)
@@ -147,7 +150,7 @@ import { Link } from 'react-router-dom';
 
 var page = function (_this: any) {
     return (
-        <div className="App">
+        <div className="Routes">
             <h1 className="wel">Welcome</h1>
             <h2>'''+name+'''</h2><br />
             '''+links+'''

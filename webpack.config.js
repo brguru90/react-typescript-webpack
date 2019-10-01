@@ -88,14 +88,14 @@ module.exports = {
                 use: [
                   'style-loader',
                   'css-loader',
-                  'react-scoped-styles/style-loader',
                   'sass-loader'
                 ]
               }
               ,
             {
                 test: /\.css$/,                
-                loader: 'style-loader!css-loader'
+                loader: 'style-loader!css-loader',
+                
 
             },
 
@@ -144,6 +144,9 @@ module.exports = {
     devServer: {
         publicPath: "/",
         contentBase: index_path,
+        historyApiFallback: {
+            index: '404.html'
+          },
         hot: true,
         // port: 3000,
         proxy: {
