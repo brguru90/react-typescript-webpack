@@ -33,7 +33,6 @@ class App extends Myservice {
       alert("Guru");
     });
 
-    console.log("fetch" + this.fetch_data("http://199.34.21.253:8080/server/test_code/", "GET", null, null, true, this.test))
     super.componentDidUpdate();
   }
 

@@ -2,7 +2,13 @@ const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 //  const webpack = require('webpack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const devMode = process.env.NODE_ENV !== 'production'
 
+index_path=""
+if(devMode)
+index_path="./public";
+else
+index_path= "./";
 
 
 module.exports = {
@@ -137,9 +143,9 @@ module.exports = {
     //   ,
     devServer: {
         publicPath: "/",
-        contentBase: "./",
+        contentBase: index_path,
         hot: true,
-        port: 3000,
+        // port: 3000,
         proxy: {
             "/server": {
               target: "http://localhost:7000",

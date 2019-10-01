@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start2": "webpack-dev-server --watch --hot --open ",
+    "start2": "webpack-dev-server  --hot --open ",
     "build2": "webpack --mode production",
     "start4": "webpack -p && webpack-dev-server  --hot --open"
   },

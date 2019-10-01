@@ -19,7 +19,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "outDir": "/proj"
+    "outDir": "./dist"
   },
   "exclude": [ "./smarthire", "./node_modules","./src_old" ]
 }
