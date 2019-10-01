@@ -3,8 +3,8 @@
 Bootstrap,jQuery,routing modules,sweetalert
 
 ## Isuues resolved
-css conflict solved using scss
-routing correction made
+css conflict solved using scss <br>
+routing correction made <br>
 404 handling
 
 ## Available Scripts
