@@ -13,7 +13,12 @@ class App extends Myservice {
 
 
   guru() {
-    swal("hisdf", "")
+    // swal("hisdf", "")
+    swal({
+      title: "Data!",
+      text: JSON.stringify(this.fetch_data("https://jsonplaceholder.typicode.com/todos/1","GET")),
+      icon: "success",
+    });
   }
   test(a: any) {
     swal(a)
@@ -28,7 +33,6 @@ class App extends Myservice {
 
   componentDidMount() {
     // $(".wel").css({ 'color': 'red' })
-
     $(".test").click(function () {
       alert("Guru");
     });

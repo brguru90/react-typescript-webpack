@@ -29,7 +29,6 @@ ReactDOM.render((
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/App" component={App} />
-                <Route path="/myservice" component={Myservice} />
 				<Route path="/guru" component={Guru} />
                 {route_link}
                 <Route component={Not_found} />

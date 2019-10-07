@@ -1,5 +1,7 @@
 import sys,os,re
 import shutil
+from html import escape
+
 
 path="./src/"
 
@@ -33,28 +35,37 @@ def remove_route(name):
 
 
 def add_route_link(name):
-    folders = [x for x in os.listdir(path) if not re.search("\.+", x)]
     links = "\n"
-    for component in folders:
-        links += "\t\t\t<Link to='/"+component+"'>"+component+"</Link><br />\n"
+    f = open(path+"index.tsx", "r")
+    index_content = f.read()
+    line_arr = index_content.split("\n")
+    for line in line_arr:
+        found=re.search("^\s*"+escape("<Route")+"\s+(exact\s+)?path=", escape(line))
+        if found:
+            route=re.search("\"(.+)\"",line).group()
+            route=route[1:-1]
+            links+="\t\t\t\t<Link to='"+route+"'>"+route[1:]+"</Link><br />\n"
 
+    # print(links)
     content = '''
-import React from 'react';
-import { Link } from 'react-router-dom';
+    import React from 'react';
+    import { Link } from 'react-router-dom';
 
-var page = function (_this: any) {
-    return (
-        <div className="Routes">
-            <h1 className="wel">Welcome</h1>
-            <h2>'''+name+'''</h2><br />
-            '''+links+'''
-            <input type="button" value="test" onClick={_this.guru} /><br />
-        </div>
-    )
-}
-export default page;
+    var page = function (_this: any) {
+        return (
+            <div className="Routes">
+                <h1 className="wel">Welcome</h1>
+                <h2>'''+name+'''</h2><br />
+                <Link to='/routes'>links</Link><br />
+                '''+links+'''
+                <input type="button" value="test" onClick={_this.guru} /><br />
+            </div>
+        )
+    }
+    export default page;
     '''
     w_path = path+name+"/"+name+"Html.tsx"
+    print(w_path)
     f = open(w_path, "w")
     f.write(content)
     f.close()

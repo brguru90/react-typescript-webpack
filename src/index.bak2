@@ -30,7 +30,6 @@ ReactDOM.render((
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route exact path="/App" component={App} />
-                <Route path="/myservice" component={Myservice} />
 				<Route path="/guru" component={Guru} />
 				<Route path="/test" component={Test} />
                 {route_link}

@@ -8,7 +8,7 @@ var page = function (_this: any) {
             <h1 className="wel">Welcome</h1>
             <h2>Routes</h2><br />
             <Link to='/routes'>links</Link><br />
-            <input type="button" value="test" onClick={_this.guru} /><br />
+            <input type="button" value="test" onClick={_this.guru.bind(_this)} /><br />
         </div>
     )
 }
