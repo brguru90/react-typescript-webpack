@@ -1,6 +1,6 @@
 {
-  "name": "react-typescript-webpack",
-  "version": "1.1.0",
+  "name": "react-typescript-webpack-made-easy",
+  "version": "1.2.0",
   "private": true,
   "homepage": "http:///myapp",
   "dependencies": {
@@ -87,7 +87,7 @@
     "url": "git+https://github.com/brguru90/react-typescript-webpack-made-easy.git"
   },
   "license": "MIT",
-  "description": "Bootstrap,jQuery,routing modules",
+  "description": "Bootstrap,jQuery,routing modules,scss-css scope issue resolved",
   "bugs": {
     "url": "https://github.com/brguru90/react-typescript-webpack-made-easy/issues"
   },
