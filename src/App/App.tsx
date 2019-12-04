@@ -6,9 +6,15 @@ var $ = require("jquery");
 var swal = require("sweetalert");
 
 class App extends Myservice {
+  state = { 
+    test_style:{
+      color:"red"
+    }
+  }
+
   constructor(props: any) {
     super(props);
-    this.state = { color: "red" };
+
   }
 
 
@@ -16,7 +22,7 @@ class App extends Myservice {
     // swal("hisdf", "")
     swal({
       title: "Data!",
-      text: JSON.stringify(this.fetch_data("https://jsonplaceholder.typicode.com/todos/1","GET")),
+      text: JSON.stringify(this.fetch_data("https://jsonplaceholder.typicode.com/todos/1", "GET")),
       icon: "success",
     });
   }
@@ -28,6 +34,14 @@ class App extends Myservice {
     return (
       Page(this)
     )
+  }
+
+  setColor(e:any) {
+    let test_style={
+      color:e.target.value,
+    }
+    this.setState({ test_style: test_style })
+
   }
 
 
