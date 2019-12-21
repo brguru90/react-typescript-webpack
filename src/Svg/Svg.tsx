@@ -59,15 +59,13 @@ class Svg extends Myservice {
     }
     get_svg_circle(x: any, y: any, r: any, angle: any, w: any, h: any) {
         return (
-            <>
-                <svg width={w} height={h} x={x} y={y} className="svg_circle">
-                    <circle cx={w/2} cy={h/2}  r={Math.floor(w/4/1.25)} stroke="green" data-ang={angle} onClick={this.get_circle_value.bind(this)} stroke-width="2" fill="yellow" />
+            <g>
+                <svg width={w} height={h} x={x} y={y} className="svg_circle" >
+                    <circle cx={w/2} cy={h/2}  r={Math.floor(w/4/1.25)} stroke="rgb(235, 232, 232)" data-ang={angle} onClick={this.get_circle_value.bind(this)} stroke-width="2" fill="rgb(250, 250, 250)" />
                 </svg>
-                {/* <svg width={w} height={h} x={x} y={y + h / 4} className="svg_circle">
-                    <image href={user_image} width={w} height={h / 2} />
-                </svg> */}
+                    <image href={user_image} width={w/2} height={h /4} x={x+w/4} y={y + h/3} data-ang={angle} onClick={this.get_circle_value.bind(this)}/>
                 <text fill="red" font-size="12" font-family="Verdana" x={x + r / 2} y={y + r * 0.8}>{angle}</text>
-            </>
+            </g>
         )
     }
 
