@@ -39,7 +39,7 @@ class Svg extends Myservice {
         for (let i = 0; i < total_circles; i++)
             svg_elems.push(this.get_circle_pos(pos_x, pos_y, radius, angle * (i + 1), size))
         for (let i = 0; i < total_circles; i++)
-            svg_elems.push(this.get_square_pos(x, y + y * 0.5, radius + radius * 0.1, angle * (i + 1), size))
+            svg_elems.push(this.get_square_pos(x, y + y * 0.5, radius + radius * 0.1, angle * (i + 1), size,scale,"Hi"))
 
 
         let svg_wrapper = (<svg width={scale * size * 4} height={scale * size * 4} className="svg_wrapper">
@@ -53,7 +53,10 @@ class Svg extends Myservice {
                     </pattern>
                 </defs>
                 <circle cx={scale * size + size * 0.5} cy={scale * size + size * 0.5} r={scale * 80} stroke="rgb(235, 232, 232)" data-ang="Guru" onClick={this.get_circle_value.bind(this)} stroke-width="2" fill="url(#image)" />
-                <text fill="red" font-size="18" font-family="Verdana" x={x + scale * 170} y={y + scale * 220}>Guru</text>
+                <g transform={`translate(${x + x * 0.4},${y + y * 0.3})`}>
+                <rect x="50" y="100" ry={scale *  size * 0.02} width={scale * size / 2} height={scale * size / 4} style={{ fill: "#e6e6e6", stroke: "black", strokeWidth: "2", opacity: "0.5" }} data-ang="Guru" onClick={this.get_circle_value.bind(this)}/>
+                <text fill="green" font-size={18*scale} font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x="100" y="130">Guru</text>
+            </g>
             </g>
 
             {svg_elems}
@@ -67,10 +70,10 @@ class Svg extends Myservice {
         return this.get_svg_circle(xp, yp, r, angle, size, size)
     }
 
-    get_square_pos(x: any, y: any, r: any, angle: any, size: any) {
+    get_square_pos(x: any, y: any, r: any, angle: any, size: any,scale:any,text:any) {
         let xp = r * Math.cos(angle * Math.PI / 180) + x
         let yp = r * Math.sin(angle * Math.PI / 180) + y
-        return this.draw_text(xp, yp, size, size, "Hi")
+        return this.draw_text(xp, yp, size, size,scale,text)
     }
     get_svg_circle(x: any, y: any, r: any, angle: any, w: any, h: any) {
         return (
@@ -84,11 +87,11 @@ class Svg extends Myservice {
         )
     }
 
-    draw_text(x: any, y: any, w: any, h: any, text: string) {
+    draw_text(x: any, y: any, w: any, h: any, scale:any,text: string) {
         return (
             <g transform={`translate(${x + x * 0.4},${y + y * 0.3})`}>
-                <rect x="50" y="20" ry={h * 0.02} width={w / 2} height={h / 4} style={{ fill: "red", stroke: "black", strokeWidth: "2", opacity: "0.5" }} />
-                <text fill="green" font-size="18" font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x="100" y="60">{text}</text>
+                <rect x="50" y="20" ry={h * 0.02} width={w / 2} height={h / 4} style={{ fill: "#e6e6e6", stroke: "black", strokeWidth: "2", opacity: "0.5" }}  data-ang={text} onClick={this.get_circle_value.bind(this)}/>
+                <text fill="green" font-size={18*scale} font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x="100" y="60">{text}</text>
             </g>
         )
     }
