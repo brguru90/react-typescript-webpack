@@ -13,6 +13,7 @@
 				<Link to='/App'>App</Link><br />
 				<Link to='/guru'>guru</Link><br />
 				<Link to='/svg'>svg</Link><br />
+				<Link to='/chart'>chart</Link><br />
 
                 <input type="button" value="test" onClick={_this.guru} /><br />
             </div>

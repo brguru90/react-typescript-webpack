@@ -10,6 +10,7 @@ import Not_found from './Not_found/Not_found';
 import Myservice from './Myservice/Myservice';
 import Guru from './Guru/Guru';
 import Svg from './Svg/Svg';
+import Chart from './Chart/Chart';
 let route_link
 try {
    let all_routes=require("./Routes/Routes").default
@@ -32,6 +33,7 @@ ReactDOM.render((
                 <Route exact path="/App" component={App} />
 				<Route path="/guru" component={Guru} />
 				<Route path="/svg" component={Svg} />
+				<Route path="/chart" component={Chart} />
                 {route_link}
                 <Route component={Not_found} />
             </Switch>
