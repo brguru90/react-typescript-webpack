@@ -88,7 +88,7 @@ class Svg extends Myservice {
         return (
             <g transform={`translate(${x + x * 0.4},${y + y * 0.3})`}>
                 <rect x="50" y="20" ry={h * 0.02} width={w / 2} height={h / 4} style={{ fill: "red", stroke: "black", strokeWidth: "2", opacity: "0.5" }} />
-                <text fill="green" font-size="42" font-family="Verdana" x={x} y={y} >{text}</text>
+                <text fill="green" font-size="18" font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x="100" y="60">{text}</text>
             </g>
         )
     }
