@@ -24,7 +24,7 @@ class Svg extends Myservice {
 
     async componentDidMount() {
         let image_blob = await $.ajax({
-            url: "http://localhost:8080/" + user_image,
+            url: "http://localhost:8081/" + user_image,
             type: "GET",
             xhrFields:{
                 responseType: 'blob'
@@ -89,19 +89,19 @@ class Svg extends Myservice {
 
     drawSvg(users: any) {
 
-        let scale = 1
+        let scale = 0.9
         let total_circles = users.members.length;
         let size = 250 * scale
         let radius = scale * size
         let x = scale * size, y = scale * size;
         let angle = 360 / total_circles;
-        let pos_x = x + x * 0.35, pos_y = y + y * 0.7
+        let pos_x = x + x * 0.37, pos_y = y + y * 0.7
         let svg_elems = []
 
         for (let i = 0; i < total_circles; i++)
-            svg_elems.push(this.get_circle_pos(pos_x, pos_y, radius, angle * (i + 1), size, users.members[i]))
+            svg_elems.push(this.get_circle_pos(pos_x, pos_y, radius, angle * (i + 1), size, users.members[i],scale))
         for (let i = 0; i < total_circles; i++)
-            svg_elems.push(this.get_square_pos(x, y + y * 0.5, radius + radius * 0.1, angle * (i + 1), size, scale, users.members[i]))
+            svg_elems.push(this.get_square_pos(x, y + y * 0.55, radius + radius * 0.1, angle * (i + 1), size, scale, users.members[i]))
 
 
         let svg_wrapper = (<svg width={scale * size * 4} height={scale * size * 4} className="svg_wrapper">
@@ -126,10 +126,10 @@ class Svg extends Myservice {
         this.setState({ svg_image: svg_wrapper })
 
     }
-    get_circle_pos(x: any, y: any, r: any, angle: any, size: any, user: any) {
+    get_circle_pos(x: any, y: any, r: any, angle: any, size: any, user: any,scale:any) {
         let xp = r * Math.cos(angle * Math.PI / 180) + x
         let yp = r * Math.sin(angle * Math.PI / 180) + y
-        return this.get_svg_circle(xp, yp, r, angle, size, size, user)
+        return this.get_svg_circle(xp, yp, r, angle, size, size, user,scale)
     }
 
     get_square_pos(x: any, y: any, r: any, angle: any, size: any, scale: any, text: any) {
@@ -137,11 +137,11 @@ class Svg extends Myservice {
         let yp = r * Math.sin(angle * Math.PI / 180) + y
         return this.draw_text(xp, yp, size, size, scale, text)
     }
-    get_svg_circle(x: any, y: any, r: any, angle: any, w: any, h: any, user: any) {
+    get_svg_circle(x: any, y: any, r: any, angle: any, w: any, h: any, user: any,scale:any) {
         return (
             <g>
                 <g width={w} height={h} transform={`translate(${x},${y})`} className="svg_circle" >
-                    <circle cx={w / 2} cy={h / 2} r={Math.floor(w / 4 / 1.25)} stroke="rgb(235, 232, 232)" data-ang={angle} onClick={this.get_circle_value.bind(this)} stroke-width="2" fill="rgb(250, 250, 250)" />
+                    <circle cx={w / 2} cy={h / 2} r={Math.floor(w / 4 / 1.5)} stroke="rgb(235, 232, 232)" data-ang={angle} onClick={this.get_circle_value.bind(this)} stroke-width="2" fill="rgb(250, 250, 250)" />
                 </g>
                 <image xlinkHref={user.profile_picture} width={w / 2} height={h / 4} x={x + w / 4} y={y + h / 3} data-ang={angle} onClick={this.get_circle_value.bind(this)} />
 
@@ -152,8 +152,8 @@ class Svg extends Myservice {
     draw_text(x: any, y: any, w: any, h: any, scale: any, text: string) {
         return (
             <g transform={`translate(${x + x * 0.4},${y + y * 0.3})`}>
-                <rect x="50" y="20" ry={h * 0.02} width={w / 2} height={h / 4} style={{ fill: "#e6e6e6", stroke: "black", strokeWidth: "2", opacity: "0.5" }} data-ang={text} onClick={this.get_circle_value.bind(this)} />
-                <text fill="green" font-size={18 * scale} font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x="100" y="60">{text.name}</text>
+                <rect x="50" y="20" ry={h * 0.02} width={w / 2*scale} height={h / 4*scale} style={{ fill: "#e6e6e6", stroke: "black", strokeWidth: "2", opacity: "0.5" }} data-ang={text} onClick={this.get_circle_value.bind(this)} />
+                <text fill="green" font-size={18 * scale} font-family="Verdana" text-anchor="middle" alignment-baseline="middle" x={100*scale*1.1} y={60*scale}>{text.name}</text>
             </g>
         )
     }
