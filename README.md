@@ -7,6 +7,8 @@ css conflict solved using scss <br>
 routing correction made <br>
 404 handling
 
+#### Do `npm i` before running
+
 ## Available Scripts
 
 ### Add components like Angular cli
