@@ -11,8 +11,9 @@ path = "./src/"
 
 def js(name):
     content = '''
+import React from 'react';
 import './'''+name+'''.scss';
-import page from './'''+name+'''Html'
+import Page from './'''+name+'''Html'
 import Myservice from '../Myservice/Myservice'
 var $ = require("jquery");
 var swal = require("sweetalert");
@@ -22,6 +23,16 @@ class '''+name+''' extends Myservice {
     constructor(props:any) {
         super(props);
     }
+
+    references = {
+        test_in: React.createRef(),
+        test_out: React.createRef()
+    }
+
+    test2 = () => {
+    //@ts-ignore
+    $(this.references.test_out.current).text(this.references.test_in.current.value)
+  }
 
      componentDidMount() {
         super.componentDidMount();
@@ -37,7 +48,7 @@ class '''+name+''' extends Myservice {
 
     render() {
         return (
-            page(this)
+             <Page _this={this} references={this.references} />
         )
     }
 }
@@ -59,18 +70,22 @@ def html(name):
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-var page = function (_this: any) {
+var Page = function (props: any) {
+    let _this = props._this 
+    let references = props.references
     return (
         <div className="'''+name+'''">
             <h1 className="wel">Welcome</h1>
             <h2>'''+name+'''</h2><br />
             <Link to='/'>App</Link><br />
             <Link to='/routes'>links</Link><br />
+             <input type="text" placeholder="Type text" onChange={_this.test2} ref={references.test_in}/><br />
+              <h6 ref={references.test_out}></h6><br />
             <input type="button" value="test" onClick={_this.guru} /><br />
         </div>
     )
 }
-export default page;
+export default Page;
     '''
     w_path = path+name+"/"+name+"Html.tsx"
     print(w_path)

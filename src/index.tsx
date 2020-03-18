@@ -9,6 +9,7 @@ import App from './App/App';
 import Not_found from './Not_found/Not_found';
 import Myservice from './Myservice/Myservice';
 import Guru from './Guru/Guru';
+import Test2 from './Test2/Test2';
 let route_link
 try {
    let all_routes=require("./Routes/Routes").default
@@ -30,6 +31,7 @@ ReactDOM.render((
                 <Route exact path="/" component={App} />
                 <Route exact path="/App" component={App} />
 				<Route path="/guru" component={Guru} />
+				<Route path="/test2" component={Test2} />
                 {route_link}
                 <Route component={Not_found} />
             </Switch>

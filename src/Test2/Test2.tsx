@@ -1,12 +1,12 @@
 
 import React from 'react';
-import './Routes.scss';
-import Page from './RoutesHtml'
+import './Test2.scss';
+import Page from './Test2Html'
 import Myservice from '../Myservice/Myservice'
 var $ = require("jquery");
 var swal = require("sweetalert");
 
-class Routes extends Myservice {
+class Test2 extends Myservice {
 
     constructor(props:any) {
         super(props);
@@ -41,5 +41,5 @@ class Routes extends Myservice {
     }
 }
 
-export default Routes;
+export default Test2;
     
