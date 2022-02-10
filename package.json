@@ -25,7 +25,7 @@
     "sweetalert": "^2.1.2",
     "webpack-dev-server": "^3.8.1",
     "xml-loader": "^1.2.1",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   },
   "scripts": {
     "start2": "chmod +x add remove & npm run django & npm run react_ts",
@@ -67,7 +67,7 @@
     "http-proxy-middleware": "^0.20.0",
     "image-webpack-loader": "^6.0.0",
     "node-hot-loader": "^1.17.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "raw-loader": "^3.1.0",
     "react-hot-loader": "^4.12.14",
     "react-scoped-styles": "^0.3.0",
